@@ -218,10 +218,35 @@
 	$$\lim_{n\rightarrow \infty}\frac{\pi(n)}{\frac{n}{lnn}} = 1 $$
 	where $pi(n):= \#$ of prime numbers $\le$ n
 	
+	\item Mersenne Primes\\
+	Def: primes have the form of $a^n - 1$\\
+	Look at geometic series: $S = 1 + x + x^2 +\dots + x^{n-1}$, $x > 1, x\in \Nb$\\
+	$S = \frac{x^n-1}{x-1}$. So when $x > 2$, $x^n - 1$ is composite.When $n$ is composite, write $n$ as $pq$. Thus, $x^p-1 | x^{p^q} - 1 = x^n$, i.e $x^n$ is composite.\\
+	Thus, Mersenne Primes have the form $2^p - 1$
 	
-	
-	
-	
+	\item Perfect Numbers\\
+	Def: a number equal to the sum of its proper divisors.\\
+	$\sigma(n)= \sum_{d \ge 1, d|n}d$  (sum of all the divisors)\\
+	$\hat{\sigma}(n) = \sigma(n) - n$, n is perfect iff $\sigma(n) = 2n$\\
+	Property of $\sigma(n)$:
+	\begin{enumerate}
+		\item If P is prime, $\sigma(p^k) = 1 + p + p^2 + \dots + p^k = \frac{p^{k+1}-1}{p-1}$
+		\item $gcd(m,n) = 1$, $\sigma(mn) = \sigma(m)\sigma(n)$
+	\end{enumerate}
+	All even perfect number have the form:$n = 2^{p-1}(2^p-1)$
+	\begin{proof}
+		n is even, write n as $2^am$, $a \ge 1$, m is odd.\\
+		gcd(m, $2^a$) = 1 $\rightarrow \sigma(2^am) = \sigma(2^a)\sigma(m) = (2^{a+1} - 1)\sigma(m)$\\
+		since $n$ is perfect number, $\sigma(n) = 2n = 2^{a+1}m$\\
+		$\rightarrow 2^{a+1}m = (2^{a+1} - 1)\sigma(m)$\\
+		$\rightarrow 2^{a+1}m = (2^{a+1} - 1)(\hat{\sigma(m)} + m)$\\
+		$\rightarrow 0 = 2^{a+1}\hat{\sigma(m)} - \hat{\sigma(m)} - m$\\
+		$\rightarrow m = (2^{a+1}-1)\hat{\sigma(m)}$\\
+		since $a > 1$, $\hat{\sigma(m)}|m, m > \hat{\sigma(m)}$\\
+		so $\hat{\sigma(m)}$ is a proper divisor of m and $\hat{\sigma(m)} = \sum d$\\
+		$\rightarrow \hat{\sigma(m)} = 1$: m has only one divsor that is smaller than itself: 1$\rightarrow$ m is a prime.\\
+		$m = 2^{a+1}-1$, m is a Mersenne Prime. $m$ has the form of $2^p-1$ and $n = 2^{p-1}(2^p-1)$
+	\end{proof} 
 \end{enumerate}
 \newpage
 \end{multicols}
