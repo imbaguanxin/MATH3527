@@ -246,7 +246,43 @@
 		so $\hat{\sigma}(m)$ is a proper divisor of m and $\hat{\sigma}(m) = \sum d$\\
 		$\rightarrow \hat{\sigma}(m) = 1$: m has only one divsor that is smaller than itself: 1$\rightarrow$ m is a prime.\\
 		$m = 2^{a+1}-1$, m is a Mersenne Prime. $m$ has the form of $2^p-1$ and $n = 2^{p-1}(2^p-1)$
-	\end{proof} 
+	\end{proof}
+
+	\item Powers Modulo m and Successive Squaring \\
+	Successive Squaring:$a^b$ mod m when b and m are big.\\
+	\begin{enumerate}
+		\item Write b in binary representation:\\
+		b = $b_0 1+b_1 2 + b_2 2^2 + b_3 2^3 \dots $, $b_i\in\left\{ 0, 1 \right\}$
+		\item calculate $a^1, a^2 \dots a^{2^k}$ mod m:\\
+		$a^2$ mod m = $(a \ mod \ m)^2$\\
+		$a^4$ mod m = $(a^2 \ mod \ m)^2 \\ \dots$\\
+		$a^{p}$ mod m = $(a^{p-1} \ mod \ m)^2$
+		\item time them together and find modulo:\\
+		e.g. $b_0, b_3, b_4 = 1$, other $b_i$'s are 0:\\
+		$a^b$ mod m = $a^{2^0} * a^{2^3} * a^{2^4}$ mod m\\
+		$a^{2^0}$, $a^{2^3}$, $a^{2^4}$ mod m was calucated in 2nd step
+	\end{enumerate}
+
+	\item Computing $k^{th}$ Roots Modulo m\\
+	Given $gcd(b,m) = 1$, $gcd(k,\phi(m)) = 1$\\
+	Calculate $x^k \equiv b $ mod m:
+	\begin{enumerate}
+		\item calculate $\phi(m)$
+		\item Find positive integers $u$, $v$ where $ku = \phi(m)v + 1$\\
+		Just use Euclidean algorithm and find $ku - \phi(m)v = 1$
+		\item $x^{ku} \equiv x^{\phi(m)v + 1} \equiv x \equiv b^u$ mod m\\
+		Find positive pair of u,v:\\
+		$u = u_0 + p\frac{\phi(m)}{gcd(k, \phi(m))} = u_0 + p\phi(m) $\\
+		$v = v_0 - p\frac{k}{gcd(k, \phi(m))} = v_0 + pk $, p is a parameter\\
+		$x^{ku} \equiv b^u \equiv x$ mod m, calculate $b^u$ mod m use Successive Squaring\\
+		$\mathbf{NOT \ FINDING \ POSSITIVE \ PAIR:}$\\
+		$x^{ku} \equiv b^u \equiv b^{p\phi(m) + u} $ p is parameter ($b^{p\phi(m)}\equiv 1$)\\
+		we can finally get a positive $p\phi(m) + u$
+	\end{enumerate} 
+
+	\item Primality Testing and Carmichael Numbers\\
+	Carmichael Number: a composite number $n$ that satisfy:\\
+	$a^n \equiv a$ mod n, $a$ is all number $< \ n$
 \end{enumerate}
 \newpage
 \end{multicols}
